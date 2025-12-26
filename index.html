@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark" />
+<meta property="og:description" content="NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark" />
+<link rel="canonical" href="https://mohamedibrahim1708.github.io/fake-news-detection/" />
+<meta property="og:url" content="https://mohamedibrahim1708.github.io/fake-news-detection/" />
+<meta property="og:site_name" content="NakbaFakeNewsDetection" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark","headline":"NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark","name":"NakbaFakeNewsDetection","url":"https://mohamedibrahim1708.github.io/fake-news-detection/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark</h1>
+      <h2 class="project-tagline">NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark</h2>
+        <a href="https://forms.gle/gQC1grjcsxhT4xsn9" class="btn">Registration Open</a>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="nakbavirality-multimodal-and-textual-virality-prediction-in-high-stakes-discourse">NakbaFakeNewsDetection: Multimodal Fake News Detection & Conflict-Aware AI Benchmark</h1>
+
+<h3 id="hosted-with-nakbanlp-workshop-at-lrec-2026">Hosted with NakbaNLP Workshop at LREC 2026</h3>
+
+<h2 id="1-motivation-and-introduction">1. Motivation and Introduction</h2>
+<p>Social media has emerged as a key arena for shaping narratives during geopolitical crises. The discussions around the Nakba and the aftermath of the October 7th conflict in Gaza illustrate a complex mix of historical trauma, live conflict reporting, and highly polarized public opinion.</p>
+
+<p>Analyzing what drives a post to “go viral” in this context is essential for understanding information spread, propaganda dynamics, and public sentiment. This shared task introduces a novel challenge: predicting the reach (virality) and engagement (interactions) of posts that are emotionally charged, historically significant, and often multimodal—combining text with graphic or symbolic imagery.</p>
+
+<p>By concentrating on this specialized domain, the task aims to advance the capabilities of NLP and computer vision models in processing context-rich, sensitive, and polarizing content.</p>
+
+<h2 id="2-data-description">2. Data Description</h2>
+<p>We present a curated, multi-platform dataset specifically designed for this task.</p>
+
+<ul>
+  <li><strong>Data Sources</strong>: X (formerly Twitter) and Facebook.</li>
+  <li><strong>Dataset Size</strong>: 2,000 distinct samples</li>
+  <li><strong>Scope</strong>: Content published post-October 7th, 2023, filtered using keywords related to “Gaza,” “Nakba,” “Palestine,” “Israel,” and specific conflict-related terminology.</li>
+  <li><strong>Data Fields</strong>:
+    <ul>
+      <li><strong>P Creation</strong>: Creation date of the page from which the post was scraped.</li>
+      <li><strong>Author Name </strong>: Name of the page or account that published the post.</li>
+      <li><strong>Post URL</strong>: Direct link to the post on Facebook or Twitter/X.</li>
+      <li><strong>Post Text</strong>: Full original text content of the post.</li>
+      <li><strong>Img URL</strong>: URL of the image associated with the post.</li>
+      <li><strong>Lang</strong>: Language of the post (Arabic or English).</li>
+      <li><strong>Followers</strong>: Number of followers for the page at the time of scraping.</li>
+      <li><strong>Post Date</strong>: Publication date of the post on the platform.</li>
+      <li><strong>App</strong>: Platform from which the post was collected (Facebook or Twitter/X).</li>
+      <li><strong>Img Name</strong>: File name of the image.</li>
+      <li><strong>Text Target</strong>: Manual label indicating whether the post text is real or fake.</li>
+      <li><strong>Img Target</strong>:  Manual label indicating whether the image is real or fake.</li>
+      <li><strong>Page Target </strong>: Contextual credibility label of the source page (reliable/unreliable).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Note on Ethics</strong>: All data will be anonymized to protect user privacy, given the sensitive nature of the topic. IDs and handles will be hashed.</p>
+
+<h2 id="3-task-definitions">3. Task Definitions</h2>
+<p>We propose three distinct tasks to evaluate model performance on different modalities and prediction objectives.</p>
+
+<h3 id="task-1-multimodal-virality-classification">Task 1: Binary Multilingual Fake News Detection</h3>
+<p>
+    The first subtask focuses on detecting misinformation in Arabic and English posts using textual information only. The dataset includes posts collected from Facebook and Twitter, containing fields such as author information, post URL, textual content. Each post is labeled as real or fake based on the Text Target field. The goal is to build multilingual classification models that can accurately identify misinformation across different languages and contexts.
+</p>
+
+<ul>
+  <li><strong>Input</strong>: Post Text (Arabic & English Posts) + Text Target.</li>
+  <li><strong>Objective</strong>: The goal is to build multilingual classification models that can accurately identify misinformation across different languages and contexts.</li>
+  <li><strong>Classes</strong>:
+    <ul>
+      <li><strong>Real</strong>: Correct Posts that dosen't contains anything missing.</li>
+      <li><strong>Fake</strong>: Posts contains anything wrong or fake.</li>
+    </ul>
+  </li>
+  <li><strong>Evaluation Metric</strong>: Macro-F1 Score (to account for potential class imbalance).</li>
+</ul>
+
+<h3 id="task-2-textual-virality-and-interaction-prediction-regression">Task 2: Arabic Cross-Modal Inconsistency Detection</h3>
+<p>The second subtask targets Arabic posts containing both text and images. It aims to identify inconsistencies between the textual and visual content. Based on the Text Target and Img Target annotations, new labels—consistent, inconsistent, and manipulated—are generated. This enables the detection of cases where textual and visual information either align or contradict each other, supporting the development of models capable of identifying complex multimodal misinformation.</p>
+
+<ul>
+  <li><strong>Input</strong>: Post Text (Arabic Posts) + Image + Text Target + Image Target</li>
+  <li><strong>Objective</strong>: The goal is to enables the detection of cases where textual and visual information either align or contradict each other, supporting the development of models capable of identifying complex multimodal misinformation.</li>
+  <li><strong>Classes</strong>:
+    <ul>
+      <li><strong>Real</strong>: Correct Posts that dosen't contains anything missing.</li>
+      <li><strong>Fake</strong>: Posts contains anything wrong or fake.</li>
+    </ul>
+  </li>
+  <li><strong>Evaluation Metric</strong>: Macro-F1 Score (to account for potential class imbalance).</li>
+</ul>
+
+<h3 id="task-2-textual-virality-and-interaction-prediction-regression">Task 3:  Image Captioning for Conflict Awareness: Gaza–Israel War 2023–2025</h3>
+<p>Participants must build an image captioning model that generates accurate, descriptive, and unbiased captions for images related to the Gaza–Israel conflict. The images, collected from Facebook and Twitter between October 2023 and August 2025, cover events such as protests, destruction, aid efforts, and media scenes. The system should produce empathetic captions that factually describe each image’s content.</p>
+
+<ul>
+  <li><strong>Input</strong>: Image only + Description</li>
+  <li><strong>Objective</strong>: The goal is to produce empathetic captions that factually describe each image’s content.</li>
+  <li><strong>Evaluation Metric</strong>: BLEU (Bilingual Evaluation Understudy) & METEOR</li>
+</ul>
+
+<h2 id="4-baseline-systems">4. Baseline Systems</h2>
+<p>To assist participants, the organizers will provide the following baselines:</p>
+
+<ul>
+  <li>
+    <strong>For Task 1</strong>: A multilingual text-only baseline using XLM-RoBERTa-base, 
+    where the post text (Arabic and English) is encoded by a pretrained transformer and 
+    the CLS representation is passed to a linear classification head with softmax 
+    for binary fake news detection.
+  </li>
+
+  <li>
+    <strong>For Task 2</strong>: A multimodal late-fusion baseline combining MARBERT for Arabic text 
+    and ResNet-50 for images. Text and image embeddings are extracted independently, 
+    concatenated, and fed into a fully connected layer with softmax to detect 
+    cross-modal misinformation.
+  </li>
+
+  <li>
+    <strong>For Task 3</strong>: A CNN–LSTM image captioning baseline, where ResNet-50 is used 
+    as an image encoder and an LSTM-based decoder generates descriptive and unbiased 
+    captions for conflict-related images.
+  </li>
+</ul>
+
+<h2 id="5-significance-and-impact">5. Significance and Impact</h2>
+<p>This shared task contributes to the NLP and multimodal AI communities by:</p>
+
+<ul>
+  <li>
+    <strong>Multilingual Misinformation Detection</strong>: 
+    Advancing research on detecting fake news in both Arabic and English social media posts, 
+    addressing linguistic diversity, code-switching, and cross-cultural narratives in conflict-related content.
+  </li>
+
+  <li>
+    <strong>Cross-Modal Inconsistency Analysis</strong>: 
+    Enabling the study of alignment and contradiction between textual and visual information in Arabic posts, 
+    supporting the detection of manipulated or misleading multimodal content.
+  </li>
+
+  <li>
+    <strong>Conflict-Aware Image Understanding</strong>: 
+    Promoting the development of image captioning systems that generate accurate, descriptive, and unbiased captions, 
+    with an emphasis on empathy and factual reporting in sensitive conflict scenarios.
+  </li>
+</ul>
+
+<h2 id="6-tentative-schedule">6. Tentative Schedule</h2>
+<ul>
+  <li><strong>Jan 1</strong>: Call for Participation.</li>
+  <li><strong>Jan 10</strong>: Release of Training Data (3,500 samples).</li>
+  <li><strong>Feb 10</strong>: Evaluation Period Begins (Test set: 1,000 blinded samples)</li>
+  <li><strong>Feb 17</strong>: Evaluation Period Ends.</li>
+  <li><strong>Feb 21</strong>: Release of Results.</li>
+  <li><strong>Mar 1</strong>: Paper Submission Deadline.</li>
+</ul>
+
+<h2 id="7-organizers">7. Organizers</h2>
+
+<ul>
+  <li>Mohamed Ibrahim Ragab, ITCS School at Nile University</li>
+  <li>Ensaf Mohamed Hussein, ITCS School at Nile University</li>
+  <li>Walaa Medhat Asel, ITCS School at Nile University</li>
+
+</ul>
+
+<h2 id="participation-guidelines">Participation Guidelines</h2>
+<ul>
+  <li>For participation guidelines, please refer to <a href="guidelines.html">Participation Guidelines</a>.</li>
+  <li>Comprehensive instructions for preparing and submitting your paper(s) are available at <a href="paper.html">Paper Submission Guidelines</a>.</li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner">
+<!--             <a href="https://forms.gle/ufj2gqRyMrrdDs5f9">Registration Open</a>  -->
+           This page is maintained by <a href="https://github.com/MohamedIbrahim1708">Mohamed Ibrahim Ragab</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://github.com/MohamedIbrahim1708">Mohamed Ibrahim</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
